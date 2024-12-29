@@ -290,7 +290,7 @@ def simulate_trading_v4(df, initial_investment, commission=0.001, stop_loss=None
 if __name__ == '__main__':
     # Load your data
     # df = pd.read_feather('intermediary_files/Hist_Data/UDAICEMENT.feather')
-    df = yf.download("UDAICEMENT.NS", period="max")
+    df = yf.download("UDAICEMENT.NS", period="max").reset_index()
     df['Date'] = pd.to_datetime(df['Date'])
     df.sort_values('Date', inplace=True)
     df.reset_index(drop=True, inplace=True)
